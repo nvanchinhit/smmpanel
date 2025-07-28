@@ -314,3 +314,16 @@ const mobileMenuCSS = `
 const style = document.createElement('style');
 style.textContent = mobileMenuCSS;
 document.head.appendChild(style); 
+
+document.addEventListener('DOMContentLoaded', function() {
+  document.querySelectorAll('.faq-toggle').forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      const answer = btn.parentElement.querySelector('.faq-answer');
+      const isOpen = !answer.classList.contains('hidden');
+      // Đóng tất cả
+      document.querySelectorAll('.faq-answer').forEach(a => a.classList.add('hidden'));
+      // Nếu đang đóng thì mở ra
+      if (!isOpen) answer.classList.remove('hidden');
+    });
+  });
+}); 
